@@ -1,0 +1,20 @@
+Family Bank app: website update
+===============================
+
+1. Upload family/bank_app_api.php into the "family" folder of your site
+   (the folder that has family_bank.php and lib.php).
+   If you run both godskingdomnow.com and golgothabridge.com, put it on both.
+
+2. That's all. There is no SQL to import. The first time someone signs in
+   from the app, it creates two small tables:
+     family_bank_app_tokens  the phones' sign-in keys (hashed)
+     family_bank_app_cids    stops a repeated sync from saving a deposit twice
+
+It reads and writes the same tables as the Family Bank page
+(family_kids, family_transactions), so the website and the phone always match.
+It changes no existing file. Parents can make changes; other family members
+can only look. Each family sees only its own children.
+
+To check it's installed, open
+  https://www.godskingdomnow.com/family/bank_app_api.php
+in a browser. It should say {"ok":false,"error":"Use the Family Bank app."}
